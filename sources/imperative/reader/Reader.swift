@@ -128,7 +128,7 @@ extension CSVReader {
             }
             
             if self.count.rows > 0 {
-                guard self.count.fields == numFields else {
+                guard numFields >= self.count.fields else {
                     let error = Error._invalidFieldCount(rowIndex: self.count.rows+1, parsed: numFields, expected: self.count.fields)
                     self.status = .failed(error)
                     throw error
